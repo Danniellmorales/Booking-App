@@ -15,23 +15,7 @@ func main() {
 
 	for remainingTickets > 0 && len(bookings) <= 50 {
 
-		var userName string
-		var lastName string
-		var userTickets uint
-		var email string
-
-		//Ask their user their personal information
-		fmt.Println("Enter your first name:")
-		fmt.Scan(&userName)
-
-		fmt.Println("Enter your last name:")
-		fmt.Scan(&lastName)
-
-		fmt.Println("Can you please provide your email addres?")
-		fmt.Scan(&email)
-
-		fmt.Println("How many tickets do you want:")
-		fmt.Scan(&userTickets)
+		userName, lastName, email, userTickets := getUserInput()
 
 		validUser, validEmail, validNumber := valideUserInputs(userName, lastName, email, userTickets, remainingTickets)
 
@@ -87,4 +71,27 @@ func valideUserInputs(userName string, lastName string, email string, userTicket
 	validEmail := strings.Contains(email, "@")
 	validNumber := userTickets > 0 && userTickets <= remainingTickets
 	return validUser, validEmail, validNumber
+}
+func getUserInput() (string, string, string, uint) {
+
+	var userName string
+	var lastName string
+	var userTickets uint
+	var email string
+
+	//Ask their user their personal information
+	fmt.Println("Enter your first name:")
+	fmt.Scan(&userName)
+
+	fmt.Println("Enter your last name:")
+	fmt.Scan(&lastName)
+
+	fmt.Println("Can you please provide your email addres?")
+	fmt.Scan(&email)
+
+	fmt.Println("How many tickets do you want:")
+	fmt.Scan(&userTickets)
+
+	return userName, lastName, email, userTickets
+
 }
