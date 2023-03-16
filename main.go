@@ -23,7 +23,7 @@ func main() {
 
 		if validUser && validEmail && validNumber {
 
-			bookingLogic(remainingTickets, userTickets, userName, lastName, email)
+			bookingLogic(userTickets, userName, lastName, email)
 
 			firstNames := getFirstNames()
 			fmt.Printf("The first names of booking are %v\n", firstNames)
@@ -94,7 +94,7 @@ func getUserInput() (string, string, string, uint) {
 
 }
 
-func bookingLogic(remainingTickets uint, userTickets uint, userName string, lastName string, email string) {
+func bookingLogic(userTickets uint, userName string, lastName string, email string) {
 	remainingTickets = remainingTickets - userTickets
 	bookings = append(bookings, userName+" "+lastName)
 
